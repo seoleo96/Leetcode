@@ -1,6 +1,8 @@
 package com.company.easy;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MissingNumber {
 
@@ -9,6 +11,18 @@ public class MissingNumber {
     }
 
     public static int missingNumber(int[] nums) { //xor
+        Set<Integer> set = new HashSet<Integer>();
+        for (int num : nums) {
+            set.add(num);
+        }
+        for (int i = 0; i <= nums.length; i++) {
+            if (!set.contains(i))
+                return i;
+        }
+        return -1;
+    }
+
+    public static int missingNumber5(int[] nums) { //xor
         int res = nums.length;//3
         System.out.println(res);
         for (int i = 0; i < nums.length; i++) {// 0 1 2
